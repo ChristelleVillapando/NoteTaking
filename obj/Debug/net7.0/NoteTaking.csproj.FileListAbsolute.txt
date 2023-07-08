@@ -1,0 +1,15 @@
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.csproj.AssemblyReference.cache
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.AssemblyInfoInputs.cache
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.AssemblyInfo.cs
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.csproj.CoreCompileInputs.cache
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.dll
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\refint\NoteTaking.dll
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.pdb
+C:\Users\Vinia\Desktop\NoteTaking\bin\Debug\net7.0\NoteTaking.exe
+C:\Users\Vinia\Desktop\NoteTaking\bin\Debug\net7.0\NoteTaking.deps.json
+C:\Users\Vinia\Desktop\NoteTaking\bin\Debug\net7.0\NoteTaking.runtimeconfig.json
+C:\Users\Vinia\Desktop\NoteTaking\bin\Debug\net7.0\NoteTaking.dll
+C:\Users\Vinia\Desktop\NoteTaking\bin\Debug\net7.0\NoteTaking.pdb
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\NoteTaking.genruntimeconfig.cache
+C:\Users\Vinia\Desktop\NoteTaking\obj\Debug\net7.0\ref\NoteTaking.dll
