@@ -14,6 +14,13 @@ namespace NoteTaking
 
 
         private List<Note> notes;
+
+        public string NotebookTitle { get; internal set; }
+
+
+        // public string NotebookTitle { get; internal set; }
+        public object Title { get; internal set; }
+
         public Notebook()
         {
             notes = new List<Note>();
@@ -46,7 +53,7 @@ namespace NoteTaking
 
                 noteToEdit.Content = newContent;
                 
-            }
+            }  
 
         }
 
@@ -66,6 +73,11 @@ namespace NoteTaking
             List<Note> searchResults = notes.FindAll(note => note.Title.ToLower().Contains(searchNoteTerm) || note.Content.ToLower().Contains(searchNoteTerm));
            
             return searchResults;
-        }   
+        }
+
+        internal static void AddNotebook(string notebooktitle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

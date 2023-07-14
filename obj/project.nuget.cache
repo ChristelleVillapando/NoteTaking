@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Uc+2VBTEp36KI9qMfH354S+f5jnuZSbRdxT1IYNCxPkqgr/731cXXbILZUX3OT0PzOtC7bANDFibLqKq5eqMQ==",
+  "dgSpecHash": "zwsVwD/8WjJ3ibmLXSpTen8JBjOOW4gqWidHzVYV4pggPbgOzQ4pqcoHWmZDtPCTcpZ+aU59XUIJAgjIdfcKUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking.csproj",
+  "projectFilePath": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking\\NoteTaking.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking.csproj": {}
+    "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking\\NoteTaking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking.csproj": {
+    "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking\\NoteTaking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking.csproj",
+        "projectUniqueName": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking\\NoteTaking.csproj",
         "projectName": "NoteTaking",
-        "projectPath": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking.csproj",
+        "projectPath": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking\\NoteTaking.csproj",
         "packagesPath": "C:\\Users\\Vinia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\obj\\",
+        "outputPath": "C:\\Users\\Vinia\\Desktop\\NoteTaking\\NoteTaking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

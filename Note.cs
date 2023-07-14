@@ -7,8 +7,8 @@ namespace NoteTaking
 {
     public class Note
     {
-        public required String Title { get; set; }
-        public required String Content {get; set; }
+        public required string Title { get; set; }
+        public required string Content {get; set; }
         public DateTime CreatedAt { get;}
         public Note(){
 
