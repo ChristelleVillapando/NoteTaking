@@ -6,23 +6,70 @@ using NoteTaking;
 public class Program
 {
     public static void Main(string[] args)
-    {
-        Notebook notebook = new Notebook();
-        bool isRunning = true;
 
-        while (isRunning)
+    
+    {
+         bool Run = true;
+         while (Run){
+        Console.WriteLine("Welcome to NoteTaking! ");
+        Console.WriteLine("1. Add Notebook");
+        Console.WriteLine("2. Choose Notebook");
+        Console.WriteLine("3. Display Notebooks");
+        Console.WriteLine("4. Edit Notebook Title");
+        Console.WriteLine("5. Search Notebook");
+        Console.WriteLine("6. Delete Notebook");
+        Console.WriteLine("0. Exit");
+        Console.WriteLine("Enter your choice");
+        string? notebookchoice = Console.ReadLine();
+        NotebookManager notebookManager = new NotebookManager();
+       
+        
+        if (notebookchoice == "1")
         {
+            //add new notebook
+            Console.WriteLine("Enter Notebook Title");
+            string? Notebooktitle = Console.ReadLine();
+
+            while (string.IsNullOrEmpty(Notebooktitle?.Trim()))
+            {
+                Console.WriteLine("Notebook title cannot be empty. ");
+                Notebooktitle = Console.ReadLine();
+            }
+
+            notebookManager.AddNotebook(Notebooktitle);
+            Console.WriteLine("Notebook added successfully. ");
+
+
+        }
+        else if (notebookchoice == "2")
+        {
+        // open the chosen notebook in the list and add notes in it
+        // pull out the chosen notebook and add notes in it
+        //how tho haha aaghhhh
+        
+        Console.WriteLine("Enter the title of the notebook you want to add notes in. "); 
+        string? chosenNotebook = Console.ReadLine();
+        
+
+        if(chosenNotebook != null){
+
+            Console.WriteLine($"Notebook '{chosenNotebook}' chosen successfully. ");
+            bool chosenNotebookRunning = true;
+            while (chosenNotebookRunning){
+            
+            Notebook notebook = new Notebook ();
             Console.WriteLine("1. Add Note");
             Console.WriteLine("2. Display Notes");
             Console.WriteLine("3. Edit Note");
             Console.WriteLine("4. Delete Note");
             Console.WriteLine("5. Search Note");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("0. Exit");
             Console.Write("Enter your choice: ");
             string? choice = Console.ReadLine();
 
             if (choice == "1")
             {
+                //add notes
                 Console.WriteLine("Enter note title:");
                 string? title = Console.ReadLine();
 
@@ -42,9 +89,11 @@ public class Program
 
                 notebook.AddNote(title, content);
                 Console.WriteLine("Note added successfully!");
+                
             }
             else if (choice == "2")
             {
+                //display notes
                 List<Note> notes = notebook.DisplayNote();
 
                 Console.WriteLine("---- All Notes ----");
@@ -58,7 +107,7 @@ public class Program
             }
             else if (choice == "3")
             {
-                
+                //edit notes
                 Console.WriteLine("Enter the title of the note to edit:");
                 string? title = Console.ReadLine();
 
@@ -70,6 +119,7 @@ public class Program
             }
             else if (choice == "4")
             {
+                //delete note
                 Console.WriteLine("Enter the title of the note to delete:");
                 string? title = Console.ReadLine();
 
@@ -78,6 +128,7 @@ public class Program
             }
             else if (choice == "5")
             {
+                //note search
                 Console.WriteLine("Enter the term of the note you want to search");
                 string? searchNoteTerm = Console.ReadLine();
 
@@ -99,18 +150,113 @@ public class Program
                     Console.WriteLine("No matching notes found!");
                 }
             }
-            else if (choice == "6")
-            {
-                Console.WriteLine("Thanks for using NoteTaking!");
-                isRunning = false;
+            else if (choice == "0")
+             {
+                chosenNotebookRunning = false;
                 
-            }
+
+           }
             else
             {
                 Console.WriteLine("Invalid choice! Try again.");
             }
 
-            Console.WriteLine();
+            }
+
+            
         }
+        else {
+            Console.WriteLine("Notebook not found");
+        }
+
+            
+     }
+
+       
+
+        else if (notebookchoice == "3")
+        {
+            //display all notebooks
+            List<Notebook> notebooks = notebookManager.GetAllNotebooks();
+
+            Console.WriteLine("---- All Notebooks ----");
+            foreach (Notebook notebook in notebooks)
+                {
+                    Console.WriteLine($"Notebook Title: {notebook.NotebookTitle}");
+                }
+                    Console.WriteLine("-----------------------");
+ 
+
+        }
+        else if (notebookchoice == "4")
+        {
+            //edit notebook title
+            Console.WriteLine("Enter the title of the notebook you want to edit.");
+            string? Notebooktitle = Console.ReadLine();
+
+            Console.WriteLine("Enter new notebook title");
+            string? newNotebookTitle = Console.ReadLine();
+            notebookManager.EditNotebookTitle(Notebooktitle, newNotebookTitle);
+            Console.WriteLine("Notebook title edited successfully. ");
+
+
+        }
+        else if (notebookchoice == "5")
+        {
+            //search notebooks
+                 
+        Console.WriteLine("Enter the term of the notebook you want to search");
+        string? searchNotebookTerm = Console.ReadLine();
+
+        List<Notebook> searchResults = notebookManager.SearchNotebooks(searchNotebookTerm);
+
+            if (searchResults.Count > 0)
+                {
+                    Console.WriteLine($"---- Search Results for '{searchNotebookTerm}' ----");
+                    foreach (Notebook notebook in searchResults)
+                        {
+                            Console.WriteLine($"Notebook Title: {notebook.Title}");
+                        }
+                            Console.WriteLine("----------------------------------------------");
+                }
+            else
+                {
+                     Console.WriteLine("No matching notebooks found!");
+                }
+
+
+        }
+        else if (notebookchoice == "6")
+        {
+            //delete notebook
+        Console.WriteLine("Enter the title of the notebook you want to delete:");
+    string? notebookTitleToDelete = Console.ReadLine();
+
+    bool isDeleted = notebookManager.DeleteNotebook(notebookTitleToDelete);
+
+    if (isDeleted)
+    {
+        Console.WriteLine("Notebook deleted successfully!");
+    }
+    else
+    {
+        Console.WriteLine("Notebook not found. Deletion failed.");
+    }
+
+        }
+        else if (notebookchoice == "0")
+        {
+
+            //exit
+            Run = false;
+        }
+        else 
+        {
+            Console.WriteLine("Invalid choice please try again.");
+        }
+
+
+        
+    }
     }
 }
