@@ -42,17 +42,15 @@ namespace NoteTaking
            Notebook notebook = notebooks.Find(notebook => string.Equals(notebook.NotebookTitle, (string?)notebookTitle, StringComparison.OrdinalIgnoreCase));
             return notebook?.NotebookTitle;
         }
-
         public void EditNotebookTitle(string Notebooktitle, string? newNotebookTitle)
         {
       
-          Notebook notebookToEdit = notebooks.Find(notebook => string.Equals((string?)notebook.NotebookTitle, NotebookTitle, StringComparison.OrdinalIgnoreCase));
+          Notebook notebookToEdit = notebooks.Find(notebook => string.Equals((string?)notebook.NotebookTitle, 
+          NotebookTitle, StringComparison.OrdinalIgnoreCase));
             if (notebookToEdit != null)
                 {
                   notebookToEdit.Title = newNotebookTitle;
                 }
-
-
         }
 
         public bool DeleteNotebook(string Notebooktitle)

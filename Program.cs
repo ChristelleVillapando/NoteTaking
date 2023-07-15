@@ -13,6 +13,7 @@ public class Program
     
     {
         NotebookManager notebookManager = new NotebookManager();
+
          bool Run = true;
          while (Run){
         Console.WriteLine("Welcome to NoteTaking! ");
@@ -48,9 +49,7 @@ public class Program
         {
         
         // pull out the chosen notebook and add notes in it
-
-       
-        
+  
         Console.WriteLine("Enter the title of the notebook you want to add notes in. "); 
         string? chosenNotebook = Console.ReadLine();
         
@@ -176,8 +175,7 @@ public class Program
 
             
      }
-
-       
+     
 
         else if (notebookchoice == "3")
         {
@@ -231,12 +229,11 @@ public class Program
                      Console.WriteLine("No matching notebooks found!");
                 }
 
-
         }
         else if (notebookchoice == "6")
         {
             //delete notebook
-        Console.WriteLine("Enter the title of the notebook you want to delete:");
+    Console.WriteLine("Enter the title of the notebook you want to delete:");
     string? notebookTitleToDelete = Console.ReadLine();
 
     bool isDeleted = notebookManager.DeleteNotebook(notebookTitleToDelete);

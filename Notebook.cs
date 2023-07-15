@@ -17,8 +17,6 @@ namespace NoteTaking
 
         public string NotebookTitle { get; internal set; }
 
-
-        // public string NotebookTitle { get; internal set; }
         public string Title { get; set; }
 
         public Notebook()
@@ -50,6 +48,7 @@ namespace NoteTaking
         {
                  
             Note noteToEdit = notes.Find(note => note.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+           
             if (noteToEdit != null){
 
                 noteToEdit.Content = newContent;
@@ -65,8 +64,6 @@ namespace NoteTaking
              {
                 notes.Remove(noteToDelete);
              }
-
-
         }
         public List<Note> SearchNotes(string searchTerm)
         {
@@ -76,9 +73,5 @@ namespace NoteTaking
             return searchResults;
         }
 
-        internal static void AddNotebook(string notebooktitle)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
