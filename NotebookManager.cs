@@ -7,16 +7,16 @@ namespace NoteTaking
 {
     public class NotebookManager
     {
-        private List<Notebook>? notebooks;
-        private object newTitle;
-        private object noteToEdit;
-        private string newNotebookTitle;
-        private object? title;
-        private string? oldNotebookTitle;
-
-        public object? notebookTitle { get; private set; }
+        
+        public object newTitle;
+        public object noteToEdit;
+        public string newNotebookTitle;
+        public object? title;
+        public string? NotebookTitle;
+        public object? notebookTitle { get; set; }
         #pragma warning disable CS8600
 
+        public List<Notebook>? notebooks;
         public NotebookManager()
         {
             notebooks = new List<Notebook>();          
@@ -33,7 +33,8 @@ namespace NoteTaking
 
         public List<Notebook>? GetAllNotebooks()
         {
-            return notebooks?.ToList();
+           
+            return notebooks; 
         }
         
         public string? GetNotebookTitle(string Notebooktitle)
@@ -42,40 +43,22 @@ namespace NoteTaking
             return notebook?.NotebookTitle;
         }
 
-        public void EditNotebookTitle(string oldNotebooktitle, string? newNotebookTitle)
+        public void EditNotebookTitle(string Notebooktitle, string? newNotebookTitle)
         {
-        //    Note notebookToEdit = notebooks.Find(notebook => string.Equals(notebook.Title, Notebooktitle, StringComparison.OrdinalIgnoreCase));
-        //     if (noteToEdit != null)
-        //     {
-
-        //         notebookToEdit.Title = newNotebookTitle;
-        //         }
-                
-        //     }  
-          Notebook notebookToEdit = notebooks.Find(notebook => string.Equals((string?)notebook.Title, oldNotebookTitle, StringComparison.OrdinalIgnoreCase));
+      
+          Notebook notebookToEdit = notebooks.Find(notebook => string.Equals((string?)notebook.NotebookTitle, NotebookTitle, StringComparison.OrdinalIgnoreCase));
             if (notebookToEdit != null)
                 {
                   notebookToEdit.Title = newNotebookTitle;
-                }
-            else
-                {
-                    Console.WriteLine("Notebook not found!");
                 }
 
 
         }
 
-
-
         public bool DeleteNotebook(string Notebooktitle)
         {
 
-            // Notebook notebookToDelete = notebooks.Find(notebook => string.Equals((string?)notebook.Title, (string?)title, StringComparison.OrdinalIgnoreCase));
-            // if (notebookToDelete != null)
-            //     {
-            //          notebooks.Remove(notebookToDelete);
-            //     }
-                //second edit
+    
                 Notebook notebookToDelete = notebooks.Find(notebook => string.Equals((string?)(notebook?.Title), (string?)title, StringComparison.OrdinalIgnoreCase));
                 if (notebookToDelete != null)
                         {
@@ -85,7 +68,7 @@ namespace NoteTaking
         }
                 
 
-         public List<Notebook> SearchNotes(string searchTermTitle)
+         public List<Notebook> SearchNotebooks(string searchTermTitle)
         {
             string searchNotebookTerm = searchTermTitle.ToLower();
             List<Notebook> searchNotebookResults = notebooks.FindAll(notebook => notebook.NotebookTitle.ToLower().Contains(searchNotebookTerm));
@@ -93,9 +76,6 @@ namespace NoteTaking
             return searchNotebookResults;
         }
 
-        internal List<Notebook> SearchNotebooks(string? searchNotebookTerm)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

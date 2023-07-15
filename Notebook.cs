@@ -19,7 +19,7 @@ namespace NoteTaking
 
 
         // public string NotebookTitle { get; internal set; }
-        public object Title { get; internal set; }
+        public string Title { get; set; }
 
         public Notebook()
         {
@@ -44,17 +44,18 @@ namespace NoteTaking
         {
                 return notes;
         }
+
+
         public void EditNote(string title, string newContent)
         {
-            
-            
+                 
             Note noteToEdit = notes.Find(note => note.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
             if (noteToEdit != null){
 
                 noteToEdit.Content = newContent;
                 
             }  
-
+           
         }
 
         public void DeleteNote(string title)

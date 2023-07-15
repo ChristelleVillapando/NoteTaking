@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using NoteTaking;
 
+// logic errors:  4 edit NB (notebook not found daw pero edited successfully )
+// 6 - DELETE NB , notebook not found deletion failed 
+// Logic errors corrections: 3 - display; 5 - search notebook
 
 public class Program
 {
@@ -9,6 +12,7 @@ public class Program
 
     
     {
+        NotebookManager notebookManager = new NotebookManager();
          bool Run = true;
          while (Run){
         Console.WriteLine("Welcome to NoteTaking! ");
@@ -21,8 +25,7 @@ public class Program
         Console.WriteLine("0. Exit");
         Console.WriteLine("Enter your choice");
         string? notebookchoice = Console.ReadLine();
-        NotebookManager notebookManager = new NotebookManager();
-       
+        
         
         if (notebookchoice == "1")
         {
@@ -43,9 +46,10 @@ public class Program
         }
         else if (notebookchoice == "2")
         {
-        // open the chosen notebook in the list and add notes in it
+        
         // pull out the chosen notebook and add notes in it
-        //how tho haha aaghhhh
+
+       
         
         Console.WriteLine("Enter the title of the notebook you want to add notes in. "); 
         string? chosenNotebook = Console.ReadLine();
@@ -54,10 +58,11 @@ public class Program
         if(chosenNotebook != null){
 
             Console.WriteLine($"Notebook '{chosenNotebook}' chosen successfully. ");
+            Notebook notebook = new Notebook();
             bool chosenNotebookRunning = true;
             while (chosenNotebookRunning){
             
-            Notebook notebook = new Notebook ();
+            
             Console.WriteLine("1. Add Note");
             Console.WriteLine("2. Display Notes");
             Console.WriteLine("3. Edit Note");
@@ -179,12 +184,13 @@ public class Program
             //display all notebooks
             List<Notebook> notebooks = notebookManager.GetAllNotebooks();
 
-            Console.WriteLine("---- All Notebooks ----");
-            foreach (Notebook notebook in notebooks)
-                {
-                    Console.WriteLine($"Notebook Title: {notebook.NotebookTitle}");
-                }
-                    Console.WriteLine("-----------------------");
+                 Console.WriteLine("---- All Notebooks ----");
+                     foreach (Notebook notebook in notebooks)
+                    {
+                         Console.WriteLine($"Notebook Title: {notebook.NotebookTitle}");
+                    }
+                Console.WriteLine("-----------------------");
+                    
  
 
         }
@@ -196,6 +202,7 @@ public class Program
 
             Console.WriteLine("Enter new notebook title");
             string? newNotebookTitle = Console.ReadLine();
+
             notebookManager.EditNotebookTitle(Notebooktitle, newNotebookTitle);
             Console.WriteLine("Notebook title edited successfully. ");
 
@@ -208,14 +215,14 @@ public class Program
         Console.WriteLine("Enter the term of the notebook you want to search");
         string? searchNotebookTerm = Console.ReadLine();
 
-        List<Notebook> searchResults = notebookManager.SearchNotebooks(searchNotebookTerm);
+        List<Notebook> searchNotebookResults = notebookManager.SearchNotebooks(searchNotebookTerm);
 
-            if (searchResults.Count > 0)
+            if (searchNotebookResults.Count > 0)
                 {
                     Console.WriteLine($"---- Search Results for '{searchNotebookTerm}' ----");
-                    foreach (Notebook notebook in searchResults)
+                    foreach (Notebook notebook in searchNotebookResults)
                         {
-                            Console.WriteLine($"Notebook Title: {notebook.Title}");
+                            Console.WriteLine($"Notebook Title: {notebook.NotebookTitle}");
                         }
                             Console.WriteLine("----------------------------------------------");
                 }
@@ -246,16 +253,14 @@ public class Program
         }
         else if (notebookchoice == "0")
         {
-
             //exit
             Run = false;
         }
+
         else 
         {
             Console.WriteLine("Invalid choice please try again.");
         }
-
-
         
     }
     }
