@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using NoteTaking;
 
-// logic errors:  4 edit NB (notebook not found daw pero edited successfully )
+// logic errors: 
 // 6 - DELETE NB , notebook not found deletion failed 
-// Logic errors corrections: 3 - display; 5 - search notebook
+// Logic errors corrections: 3 - display; 5 - search notebook; 4- edit NB
 
 public class Program
 {
