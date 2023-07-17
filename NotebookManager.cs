@@ -8,15 +8,15 @@ namespace NoteTaking
     public class NotebookManager
     {
         
-        public object newTitle;
-        public object noteToEdit;
-        public string newNotebookTitle;
+        public object? newTitle;
+        public object? noteToEdit;
+        public string? newNotebookTitle;
         public object? title;
         public string? NotebookTitle;
         public object? notebookTitle { get; set; }
         #pragma warning disable CS8600
 
-        public List<Notebook>? notebooks;
+        public List<Notebook> notebooks;
         public NotebookManager()
         {
             notebooks = new List<Notebook>();          
@@ -39,18 +39,19 @@ namespace NoteTaking
         
         public string? GetNotebookTitle(string Notebooktitle)
         {
-           Notebook notebook = notebooks.Find(notebook => string.Equals(notebook.NotebookTitle, (string?)notebookTitle, StringComparison.OrdinalIgnoreCase));
+           Notebook notebook = notebooks.Find(notebook => string.Equals(notebook.NotebookTitle, (string)notebookTitle, StringComparison.OrdinalIgnoreCase));
             return notebook?.NotebookTitle;
         }
-        public void EditNotebookTitle(string Notebooktitle, string? newNotebookTitle)
+        public void EditNotebookTitle(string? Notebooktitle, string? newNotebookTitle)
         {
       
-          Notebook notebookToEdit = notebooks.Find(notebook => string.Equals((string?)notebook.NotebookTitle, 
-          NotebookTitle, StringComparison.OrdinalIgnoreCase));
+          Notebook notebookToEdit = notebooks.Find(notebook => string.Equals((string)notebook.NotebookTitle, 
+          Notebooktitle, StringComparison.OrdinalIgnoreCase));
             if (notebookToEdit != null)
                 {
-                  notebookToEdit.Title = newNotebookTitle;
+                  notebookToEdit.NotebookTitle = newNotebookTitle;
                 }
+    
         }
 
         public bool DeleteNotebook(string Notebooktitle)
@@ -63,6 +64,8 @@ namespace NoteTaking
                               notebooks.Remove(notebookToDelete);
                         }
                          return false; // Notebook not found   
+
+                         
         }
                 
 

@@ -14,6 +14,7 @@ namespace NoteTaking
 
 
         private List<Note> notes;
+        internal string? title;
 
         public string NotebookTitle { get; internal set; }
 
