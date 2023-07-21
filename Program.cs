@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using NoteTaking;
 
 
-// Logic errors corrections: 3 - display; 5 - search notebook; 4- edit NB; 6- delete notebook
 
+// logic error: delete notebook - deletion failed pero nadelete naman yung object
+// notes from a certain notebook are not retained when that notebook is exited
 public class Program
 {
     public static void Main(string[] args)
@@ -17,7 +18,7 @@ public class Program
          while (Run){
         Console.WriteLine("Welcome to NoteTaking! ");
         Console.WriteLine("1. Add Notebook");
-        Console.WriteLine("2. Choose Notebook");
+        Console.WriteLine("2. Choose Notebook"); 
         Console.WriteLine("3. Display Notebooks");
         Console.WriteLine("4. Edit Notebook Title");
         Console.WriteLine("5. Search Notebook");
@@ -232,21 +233,26 @@ public class Program
         else if (notebookchoice == "6")
         {
             //delete notebook
-    Console.WriteLine("Enter the title of the notebook you want to delete:");
-    string? notebookTitleToDelete = Console.ReadLine();
+            Console.WriteLine("Enter the title of the notebook you want to delete:");
+            string? notebookToDelete = Console.ReadLine();
 
-    bool isDeleted = notebookManager.DeleteNotebook(notebookTitleToDelete);
-
-    if (isDeleted)
-    {
-        Console.WriteLine("Notebook deleted successfully!");
-    }
-    else
-    {
-        Console.WriteLine("Notebook not found. Deletion failed.");
-    }
+    
+            bool isDeleted = notebookManager.DeleteNotebook(notebookToDelete);
+    
+             if (isDeleted)
+                {
+                    Console.WriteLine("Notebook deleted successfully!");
+                }
+          
+             else
+                {         
+                    Console.WriteLine("Notebook not found. Deletion failed.");
+                   
+                }
 
         }
+
+
         else if (notebookchoice == "0")
         {
             //exit

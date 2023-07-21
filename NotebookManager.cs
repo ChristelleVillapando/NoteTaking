@@ -53,20 +53,24 @@ namespace NoteTaking
                 }    
         }
 
-        public bool DeleteNotebook(string Notebooktitle)
+        public bool DeleteNotebook(string? Notebooktitle)
         {
 
-    
-            
             Notebook notebookToDelete = notebooks.Find(notebook => string.Equals((string)notebook.NotebookTitle, 
             Notebooktitle, StringComparison.OrdinalIgnoreCase));
                 if (notebookToDelete != null)
                         {
                               notebooks.Remove(notebookToDelete);
+                              return true; // notebook found. deleted successfully
                         }
-                         return false; 
+                else {
+                    return false; // notebook not found, deletion failed 
 
-                         
+
+                }
+                                            
+                     
+                   
         }
                 
 
